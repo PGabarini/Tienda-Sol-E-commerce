@@ -1,0 +1,279 @@
+
+.registro-container {
+  display: flex;
+  height: 100vh;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.registro-left {
+  flex: 1;
+  background-color: #f9f4fb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 3rem;
+  color: #4a2b4d;
+}
+
+.registro-left .logo {
+  width: 120px;
+  margin-bottom: 2rem;
+}
+
+.registro-left h1 {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
+.registro-left .highlight {
+  color: #b449ba;
+  font-weight: bold;
+}
+
+.registro-left .legal {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 2rem;
+}
+
+.registro-left .legal a {
+  color: #b449ba;
+  text-decoration: none;
+}
+
+.registro-left .legal a:hover {
+  text-decoration: underline;
+}
+
+.registro-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  overflow-y: auto;
+  padding: 2rem 0;
+}
+
+
+.registro-form {
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.registro-form h2 {
+  text-align: center;
+  color: #4a2b4d;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.profile-label {
+  cursor: pointer;
+}
+
+.profile-preview,
+.profile-placeholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #b449ba;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f4fb;
+  font-size: 2rem;
+  color: #b449ba;
+  transition: all 0.3s ease;
+}
+
+.profile-placeholder:hover {
+  background-color: #b449ba;
+  color: #fff;
+}
+
+.profile-text {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.profile-upload input[type="file"] {
+  display: none;
+}
+
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-weight: 600;
+  color: #4a2b4d;
+  margin-bottom: 0.3rem;
+}
+
+.form-field input {
+  padding: 0.8rem;
+  border: 2px solid #e0c7e3;
+  border-radius: 25px;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.form-field input:focus {
+  border-color: #b449ba;
+}
+
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
+
+.btn-primary.wide,
+.btn-secondary.wide {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Botón principal */
+.btn-primary.wide {
+  border: none;
+  background: #b449ba;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-primary.wide:hover {
+  background: #922d99;
+}
+
+/* Botón secundario */
+.btn-secondary.wide {
+  border: 2px solid #b449ba;
+  background: #fff;
+  color: #b449ba;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.btn-secondary.wide:hover {
+  background: #b449ba;
+  color: #fff;
+}
+.form-field select {
+  padding: 0.8rem;
+  border: 2px solid #e0c7e3;
+  border-radius: 25px;
+  outline: none;
+  font-size: 1rem;
+  background-color: #fff; /* mismo color que inputs */
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+/* Agregar ícono de flecha para el select */
+.form-field select {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path fill='%23b449ba' d='M0 0l6 8 6-8z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+}
+
+/* Focus */
+.form-field select:focus {
+  border-color: #b449ba;
+  box-shadow: 0 0 5px rgba(180, 73, 186, 0.3);
+}
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4caf50; /* verde éxito */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  animation: fadein 0.3s, fadeout 0.3s 0.7s;
+  z-index: 1000;
+}
+
+.toast-success {
+  background-color: #4caf50;
+}
+
+/* Error (rojo) */
+.toast-error {
+  background-color: #f44336;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeout {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+
+
+@media (max-width: 768px) {
+  .registro-container {
+    flex-direction: column;
+  }
+
+  .registro-left {
+    display: none; 
+  }
+
+  .registro-right {
+    width: 100%;
+    padding: 2rem;
+    align-items: self-start;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .registro-form {
+    max-width: 400px;
+  }
+}
+

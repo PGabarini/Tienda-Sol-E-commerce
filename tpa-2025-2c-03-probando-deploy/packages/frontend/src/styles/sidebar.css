@@ -1,0 +1,85 @@
+/* === Estilo general sidebar === */
+.sidebar {
+  width: 220px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1; /* esto empuja el botón al final si querés */
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar li a {
+  display: block;
+  text-decoration: none;
+  color: #555555;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover */
+.sidebar li a:hover {
+  color: #b449ba;
+  background-color: #f9f9f9;
+  transform: translateX(5px);
+}
+
+/* Activo (solo para los normales) */
+.sidebar li a.active:not(.sidebar-logout-btn) {
+  color: #b449ba;
+  background-color: #f9f9f9;
+  font-weight: 600;
+  transform: none;
+}
+
+/* Barrita lateral solo en los activos normales */
+.sidebar li a.active:not(.sidebar-logout-btn)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 4px;
+  background-color: #b449ba;
+  border-radius: 2px;
+}
+
+/* === BOTÓN DE CERRAR SESIÓN === */
+/* === BOTÓN DE CERRAR SESIÓN === */
+.sidebar-logout-btn {
+  display: block;
+  width: 100%;
+  margin-top: auto;
+  padding: 10px 15px;
+  text-align: center;
+  font-weight: 600;
+  color: #ffffff !important; /* 👈 fuerza el blanco del texto */
+  background: #b449ba;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.sidebar-logout-btn:hover {
+  background: #a33fa7;
+  color: #a33fa7 !important; /* 👈 asegura que no cambie en hover */
+  box-shadow: 0 4px 10px rgba(180, 73, 186, 0.3);
+  transform: scale(1.04) !important;
+}

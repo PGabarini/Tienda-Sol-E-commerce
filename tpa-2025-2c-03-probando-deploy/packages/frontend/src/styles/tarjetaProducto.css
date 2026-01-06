@@ -1,0 +1,138 @@
+.contenedor-tarjetaProd{
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    border: 0.1rem ;
+    background-color: rgb(255, 255, 255);
+    margin: 1rem;
+    border-radius: 0.25rem;
+    aspect-ratio: 1 / 1; 
+    width: 100%;
+    text-align: center;
+    box-shadow: 0.05rem 0.05rem rgba(54, 54, 54, 0.442);
+    cursor: pointer;
+    max-width: 18.5rem;
+}
+
+.contenedor-tarjetaProd:hover{
+    transform: scale(1.05,1.05);
+}
+
+.nav-tarjetaProd{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.imagen-tarjetaProd{
+  width: 50%;
+  height: auto;
+  object-fit: contain;
+}
+
+.boton-ver:hover{
+    transition: all 0.3s ease;
+    color: #b449ba;
+    background-color: white;
+}
+
+h1{
+    font-size: 1rem;
+}
+h2{
+    font: 0.9rem;
+
+}
+h3{
+    font-size: 0.9rem;
+}
+
+.titulo-tarjetaProd{
+    color: rgb(35, 34, 36);
+    margin: 1.5%;
+    white-space: normal;      
+}
+
+.descripcion-tarjetaProd{
+    font-weight: 150;
+    margin: 1.5%;
+    width: auto;
+    height: auto;
+    text-align: start;
+    margin-left: 1.3rem;
+    margin-right: 0.3rem;
+}
+
+.precio-ver-contenedor{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.boton-ver{
+    margin: 1rem;
+    background-color: #b449ba;
+    border-radius: 10px;
+    width: 5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+
+}
+
+.boton-verProd-tarjetaProd{
+    color: black;
+    text-decoration-line: none;
+}
+
+.precio-tarjetaProd{
+    margin: 1rem;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.contenedor-imagen{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    height: 50%;
+    width: 80%;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+}
+
+.contenedor-vacio{
+    display: flex;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+    border: 0.1rem ;
+    background-color: rgb(239, 239, 239);
+    margin: 1.4rem;
+    border-radius: 1rem;
+    aspect-ratio: 1 / 1; 
+    width: 90%;
+    text-align: center;
+    box-shadow: 0.05rem 0.05rem rgb(54, 54, 54);
+    cursor: pointer;
+    animation: cambiarColorFondo 0.7s ease-in-out infinite alternate;
+    max-width: 18.5rem;
+}
+
+@keyframes cambiarColorFondo{
+    0%{
+        background-color: white;
+    }
+    100%{
+        background-color: #f9d8fb;
+    }
+}

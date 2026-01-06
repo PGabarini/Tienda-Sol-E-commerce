@@ -1,0 +1,89 @@
+.Barra-busqueda{
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin: 2rem;
+}
+
+.nav-busqueda{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.form-busqueda{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.submit-busqueda{
+  display: flex;
+  width: 3.3rem; 
+  height: 3.3rem;
+  padding: 0;
+  border: none;
+  border-radius: 900px;
+  border-color: #b449ba;
+  margin-left: -40px;
+  background-color: #b449ba;
+  background-image: url('../../public/uploads/lupa-blanca.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.input-busqueda{
+  flex: 1;
+  padding: 2%;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  background-color: #f1e7f9;
+  color: #333;
+  width: 43rem;
+  text-align: left;
+}
+
+.input-busqueda::placeholder{
+    color: #8b8585;
+    padding-left:12px;
+}
+
+.barra{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+@media(max-width:1000px){
+  .input-busqueda{
+    width: 16rem;
+    height: 50px;
+  }
+}
+
+@media(max-width:700px){
+  .input-busqueda{
+    width: 8rem;
+    height: 50px;
+  }
+  .Barra-busqueda{
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 370px) {
+    .input-busqueda{
+    width: 7rem;
+    height: 50px;
+  }
+  .Barra-busqueda{
+    margin: 0.2rem;
+  }
+}

@@ -1,0 +1,970 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Tienda Sol",
+        "version": "1.0",
+        "description": "Tienda de productos"
+    },
+    "paths": {
+        "/pedidos": {
+            "summary": "Manejo de los pedidos del sistema",
+            "description": "",
+            "get": {
+                "tags": [
+                    "Pedidos"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Pedido"
+                                },
+                                "examples": {
+                                    "Pedidos del sistema": {
+                                        "value": [
+                                            {
+                                                "compradorId": "68c9ab77b47a72e5d35c936b",
+                                                "items": [
+                                                    {
+                                                        "productoId": "68c9b5b203365f3e368b0780",
+                                                        "cantidad": 2
+                                                    }
+                                                ],
+                                                "moneda": "REAL",
+                                                "direccionEntrega": {
+                                                    "calle": "Calle Falsa",
+                                                    "altura": "123",
+                                                    "piso": "1",
+                                                    "departamento": "A",
+                                                    "ciudad": "Ciudad Ejemplo",
+                                                    "codPostal": "1000",
+                                                    "provincia": "Provincia Ejemplo",
+                                                    "pais": "BRASIL",
+                                                    "lat": -34.6037,
+                                                    "lon": -58.3816
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Se muestran todos los pedidos"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/Internal-Server-ERROR"
+                    }
+                },
+                "summary": "Obtiene todos los pedidos"
+            },
+            "post": {
+                "requestBody": {
+                    "description": "Se debe incluir el cuerpo de un pedido para crearlo",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Pedido"
+                            },
+                            "examples": {
+                                "PedidoEjemplo": {
+                                    "value": {
+                                        "compradorId": "68c9ab77b47a72e5d35c936b",
+                                        "items": [
+                                            {
+                                                "productoId": "68c9b5b203365f3e368b0770",
+                                                "cantidad": 1
+                                            }
+                                        ],
+                                        "moneda": "REAL",
+                                        "direccionEntrega": {
+                                            "calle": "Calle Falsa",
+                                            "altura": "123",
+                                            "piso": "1",
+                                            "departamento": "A",
+                                            "ciudad": "Ciudad Ejemplo",
+                                            "codPostal": "1000",
+                                            "provincia": "Provincia Ejemplo",
+                                            "pais": "BRASIL",
+                                            "lat": -34.6037,
+                                            "lon": -58.3816
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Pedidos"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Pedido"
+                                },
+                                "examples": {
+                                    "Nuevo pedido creado": {
+                                        "value": "    \"id\":\"\"\r\n    {\r\n      \"compradorId\": \"68c9ab77b47a72e5d35c936b\",\r\n      \"items\": [\r\n        {\r\n          \"productoId\": \"68c9b5b203365f3e368b0780\",\r\n          \"cantidad\": 2\r\n        }\r\n      ],\r\n      \"moneda\": \"REAL\",\r\n      \"direccionEntrega\": {\r\n        \"calle\": \"Calle Falsa\",\r\n        \"altura\": \"123\",\r\n        \"piso\": \"1\",\r\n        \"departamento\": \"A\",\r\n        \"ciudad\": \"Ciudad Ejemplo\",\r\n        \"codPostal\": \"1000\",\r\n        \"provincia\": \"Provincia Ejemplo\",\r\n        \"pais\": \"BRASIL\",\r\n        \"lat\": -34.6037,\r\n        \"lon\": -58.3816\r\n      }\r\n    }\r\n "
+                                    }
+                                }
+                            }
+                        },
+                        "description": "El pedido fue correctamente creado"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {}
+                        },
+                        "description": "Error en la creacion del Pedido. Solicitud incorrecta por parte del cliente"
+                    }
+                },
+                "summary": "Creacion de un pedido"
+            }
+        },
+        "/pedidos/:id": {
+            "summary": "Cancelar un pedido",
+            "delete": {
+                "tags": [
+                    "Pedidos"
+                ],
+                "parameters": [
+                    {
+                        "name": "IdPedido",
+                        "description": "El ID del pedido",
+                        "schema": {},
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "203": {
+                        "content": {
+                            "application/json": {}
+                        },
+                        "description": "El pedido fue cancelado exitosamente\n"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {}
+                        },
+                        "description": "No se encontro el Usuario"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/Internal-Server-ERROR"
+                    }
+                },
+                "summary": "Cancelacion de un pedido"
+            },
+            "parameters": [
+                {
+                    "name": "IdPedido",
+                    "description": "El ID del pedido a cancelar",
+                    "schema": {},
+                    "in": "query",
+                    "required": true
+                }
+            ]
+        },
+        "/pedidos/:id/envios": {
+            "summary": "Crea un envío para el pedido",
+            "post": {
+                "tags": [
+                    "Pedidos"
+                ],
+                "parameters": [
+                    {
+                        "name": "IdPedido",
+                        "description": "Indica el ID del pedido",
+                        "schema": {},
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "203": {
+                        "content": {
+                            "application/json": {}
+                        },
+                        "description": "Indica que el pedido fue marcado como enviado correctamente"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {}
+                        },
+                        "description": "No se encontro el Usuario"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/Internal-Server-ERROR"
+                    }
+                },
+                "summary": "Marca un pedido como enviado"
+            }
+        },
+        "/usuarios/:id/pedidos": {
+            "get": {
+                "tags": [
+                    "Pedidos"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Pedido"
+                                },
+                                "examples": {
+                                    "Pedidos del Usuario": {
+                                        "value": [
+                                            {
+                                                "compradorId": "68c9ab77b47a72e5d35c936b",
+                                                "items": [
+                                                    {
+                                                        "productoId": "68c9b5b203365f3e368b0780",
+                                                        "cantidad": 2
+                                                    }
+                                                ],
+                                                "moneda": "REAL",
+                                                "direccionEntrega": {
+                                                    "calle": "Calle Falsa",
+                                                    "altura": "123",
+                                                    "piso": "1",
+                                                    "departamento": "A",
+                                                    "ciudad": "Ciudad Ejemplo",
+                                                    "codPostal": "1000",
+                                                    "provincia": "Provincia Ejemplo",
+                                                    "pais": "BRASIL",
+                                                    "lat": -34.6037,
+                                                    "lon": -58.3816
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Se muestran los pedidos del usuario de forma exitosa\n"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "description": "No se encontro el Usuario"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/Internal-Server-ERROR"
+                    }
+                },
+                "summary": "Muestra los pedidos pertenecientes al usuario"
+            },
+            "parameters": [
+                {
+                    "name": "IdUsuario",
+                    "description": "El ID del usuario",
+                    "schema": {},
+                    "in": "query",
+                    "required": true
+                }
+            ]
+        },
+        "/usuarios": {
+            "summary": "Manejo de los usuarios del sistema",
+            "post": {
+                "requestBody": {
+                    "description": "Informacion necesaria para crear un Usuario en formato JSON",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Usuario"
+                            },
+                            "examples": {
+                                "Nuevo Usuario": {
+                                    "value": {
+                                        "nombre": "PABLO",
+                                        "telefono": 21321,
+                                        "email": "PABooLO@gmail",
+                                        "tipo": "ADMIN"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Usuarios"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Usuario"
+                                },
+                                "examples": {
+                                    "UsuarioCreado": {
+                                        "value": "{\r\n    \"id\":\"\"\r\n    \"nombre\" : \"PABLO\",\r\n    \"telefono\" : 21321,\r\n    \"email\" : \"PABooLO@gmail\",\r\n    \"tipo\" : \"ADMIN\".\r\n    \"fechaAlta\":\"\"\r\n}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "La creacion del usuario fue exitosa\n"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {}
+                        },
+                        "description": "Error en la creacion del usuario. Solicitud invalida por parte del cliente"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/Internal-Server-ERROR"
+                    }
+                },
+                "summary": "Creacion de un usuario del sistema"
+            }
+        },
+        "/usuarios/:id/productos": {
+            "summary": "Manejo de los productos de un Usuario",
+            "post": {
+                "requestBody": {
+                    "description": "Informacion necesaria para crear un nuevo producto",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Producto"
+                            },
+                            "examples": {
+                                "ProductoPelota": {
+                                    "value": {
+                                        "titulo": "PELOTA",
+                                        "descripcion": "Camiseta de algodón transpirable, ideal para correr o entrenar.",
+                                        "categorias": [],
+                                        "precio": 1999.99,
+                                        "moneda": "REAL",
+                                        "stock": 3,
+                                        "fotos": [
+                                            "aa"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "tags": [
+                    "Productos"
+                ],
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Producto"
+                                },
+                                "examples": {
+                                    "Productos del Usuario": {
+                                        "value": "  [\r\n    {\r\n      \"vendedor\": \"1\",\r\n      \"titulo\": \"Laptop Gamer XT300\",\r\n      \"descripcion\": \"Laptop con procesador i7, 16GB RAM y tarjeta gráfica RTX 3060\",\r\n      \"categorias\": [\"Electrónica\", \"Computación\"],\r\n      \"precio\": 1800,\r\n      \"moneda\": \"DOLAR_USA\",\r\n      \"stock\": 10,\r\n      \"cantidadVendida\": 5,\r\n      \"fotos\": [\"https://example.com/laptop1.jpg\"],\r\n      \"activo\": true\r\n    }\r\n]"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "El Producto fue creado correctamente"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {}
+                        },
+                        "description": "Error en la creacion. Informacion mal enviada"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/Internal-Server-ERROR"
+                    }
+                },
+                "summary": "Creacion de un producto por parte de un Usuario"
+            },
+            "parameters": [
+                {
+                    "name": "IdUsuario",
+                    "description": "El ID del Usuario",
+                    "schema": {},
+                    "in": "query",
+                    "required": true
+                }
+            ]
+        },
+        "/health": {
+            "summary": "Verifica que el el servidor se haya levantado correctamente",
+            "get": {
+                "tags": [
+                    "Conexion"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Conexion Correcta": {
+                                        "value": {
+                                            "status": "OK!",
+                                            "uptime": 9.3771708,
+                                            "timestamp": "2025-10-07T21:27:10.018Z"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "La conexion existe y funciona\n"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/Internal-Server-ERROR"
+                    }
+                },
+                "summary": "Comprueba la conexion"
+            }
+        },
+        "/usuarios/:id/notificaciones/:estado": {
+            "summary": "Manejo de las notificaciones de un usuario por estado de las mismas",
+            "get": {
+                "tags": [
+                    "Notificaciones"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notificacion"
+                                },
+                                "examples": {
+                                    "Notificaciones del Usuario": {
+                                        "value": [
+                                            {
+                                                "usuarioDestino": "68c9b787e22ba22fcb9d4e8a",
+                                                "mensaje": "Nuevo pedido de valen.\n         Productos: 1 x LECHUGAA, 2 x TOMATE.\n         Total: 696 REAL.\n         Dirección de entrega: Calle Falsa 123, Ciudad Ejemplo",
+                                                "fechaAlta": "2025-09-24T00:17:50.350Z",
+                                                "fueLeida": false
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Retorna correctamente todas las notificaciones pertenecientes al\nusuario indicado por su ID y con el estado indicado de las notificaciones"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {}
+                        },
+                        "description": "Formato invalido de Estado o Id"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {}
+                        },
+                        "description": "Usuario no encontrado"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/Internal-Server-ERROR"
+                    }
+                },
+                "summary": "Obtener todas las notificaciones que cumplan con el estado y sean del usuario"
+            },
+            "parameters": [
+                {
+                    "name": "IdUsuario",
+                    "description": "El ID del usuario",
+                    "schema": {},
+                    "in": "query",
+                    "required": true
+                },
+                {
+                    "name": "Estado-Notificacion",
+                    "description": "Determina si ver las notificaciones Leidas o No leidas",
+                    "schema": {
+                        "type": "boolean"
+                    },
+                    "in": "query",
+                    "required": true
+                }
+            ]
+        },
+        "/notificaciones/:id": {
+            "summary": "Manejo de las notificaciones del sistema",
+            "patch": {
+                "tags": [
+                    "Notificaciones"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "La notificacion fue marcado como Leida correctamente"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {}
+                        },
+                        "description": "No se encontro la notificacion buscada"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/Internal-Server-ERROR"
+                    }
+                },
+                "summary": "Marca la notificacion indicada como leida"
+            },
+            "parameters": [
+                {
+                    "name": "IdNotificacion",
+                    "description": "El ID de la notificacion",
+                    "schema": {},
+                    "in": "query",
+                    "required": true
+                }
+            ]
+        },
+        "/vendedor/:id/productos": {
+            "get": {
+                "tags": [
+                    "Productos"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "Identificador único del vendedor.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "nombre",
+                        "description": "Filtra los productos por nombre.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "descripcion",
+                        "description": "Filtra los productos por descripción.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "categoria",
+                        "description": "Filtra los productos por categoría.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "precioDesde",
+                        "description": "Filtra productos con precio mayor o igual a este valor.",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "precioHasta",
+                        "description": "Filtra productos con precio menor o igual a este valor.",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "orden",
+                        "description": "Orden de los resultados.",
+                        "schema": {
+                            "enum": [
+                                "masVendidos",
+                                "precioAscendente",
+                                "precioDescendente"
+                            ],
+                            "type": "string"
+                        },
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "vendedor": {
+                                                "type": "string"
+                                            },
+                                            "titulo": {
+                                                "type": "string"
+                                            },
+                                            "descripcion": {
+                                                "type": "string"
+                                            },
+                                            "categorias": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "precio": {
+                                                "type": "number"
+                                            },
+                                            "moneda": {
+                                                "type": "string"
+                                            },
+                                            "stock": {
+                                                "type": "integer"
+                                            },
+                                            "cantidadVendida": {
+                                                "type": "integer"
+                                            },
+                                            "fotos": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "activo": {
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "example": {
+                                        "summary": "Respuesta exitosa",
+                                        "value": [
+                                            {
+                                                "vendedor": "Juan Pérez",
+                                                "titulo": "Remera Azul",
+                                                "descripcion": "Remera de algodón azul con estampado",
+                                                "categorias": [
+                                                    "Ropa",
+                                                    "Hombre"
+                                                ],
+                                                "precio": 4500,
+                                                "moneda": "ARS",
+                                                "stock": 15,
+                                                "cantidadVendida": 120,
+                                                "fotos": [
+                                                    "https://ejemplo.com/foto1.jpg"
+                                                ],
+                                                "activo": true
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Lista de productos del vendedor."
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "error": "No se encontraron productos para el vendedor indicado."
+                                }
+                            }
+                        },
+                        "description": "No se encontró el vendedor o no existen productos asociados."
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/Internal-Server-ERROR"
+                    }
+                },
+                "summary": "Obtiene los productos de un vendedor",
+                "description": "Retorna los productos de un vendedor filtrados y ordenados. Si no se especifican parámetros de consulta, devuelve todos los productos del vendedor."
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Pedido": {
+                "title": "Root Type for Pedido",
+                "description": "Un pedio esta conformado por:\n    Un comprador\n    Un conjunto de Items\n    Una moneda\n    Una direccion",
+                "type": "object",
+                "properties": {
+                    "compradorId": {
+                        "description": "Id del comprador",
+                        "type": "string"
+                    },
+                    "items": {
+                        "description": "Items que conforman el pedido\n\n\n    [\n        {\n          producto;\n          cantidad;\n        }\n    ]",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "productoId": {
+                                    "type": "string"
+                                },
+                                "cantidad": {
+                                    "format": "int32",
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "moneda": {
+                        "description": "Moneda en la que se realizada el pago. Puediendo ser una de las siguientes\n\n    Peso: \"PESO_ARG\",\n    Dolar: \"DOLAR_USA\",\n    Real: \"REAL\"",
+                        "type": "string"
+                    },
+                    "direccionEntrega": {
+                        "description": "Direccion de entrega del pedido:\n\n    calle, altura, piso, departamento, ciudad, codPostal, provincia, pais, lat, lon",
+                        "type": "array",
+                        "items": {},
+                        "properties": {
+                            "calle": {
+                                "type": "string"
+                            },
+                            "altura": {
+                                "type": "string"
+                            },
+                            "piso": {
+                                "type": "string"
+                            },
+                            "departamento": {
+                                "type": "string"
+                            },
+                            "ciudad": {
+                                "type": "string"
+                            },
+                            "codPostal": {
+                                "type": "string"
+                            },
+                            "provincia": {
+                                "type": "string"
+                            },
+                            "pais": {
+                                "type": "string"
+                            },
+                            "lat": {
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "lon": {
+                                "format": "double",
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "estado": {
+                        "description": "El estado actual del pedido. Puediendo ser\n\n    Pendiente: \"PENDIENTE\",\n    Confirmado: \"CONFIRMADO\",\n    EnPreparacion: \"EN_PREP\",\n    Enviado: \"ENVIADO\",\n    Entregado: \"ENTREGADO\",\n    Cancelado: \"CANCELADO\""
+                    },
+                    "historialEstados": {
+                        "description": "El historial de estados que tuvo el pedido\n\n      estado;\n      pedido;\n      usuario;\n      motivo;\n      fecha;"
+                    }
+                },
+                "example": {
+                    "comprador": "68c9ab77b47a72e5d35c936b",
+                    "items": [
+                        {
+                            "producto": {
+                                "_id": "68c9b5b203365f3e368b0770",
+                                "descripcion": "de buena calidad",
+                                "categorias": [
+                                    "comida"
+                                ],
+                                "precio": 232,
+                                "moneda": "PESO_ARG",
+                                "stock": 6,
+                                "fotos": [
+                                    "tuki"
+                                ],
+                                "activo": true,
+                                "titulo": "LECHUGAA",
+                                "vendedor": "68c9b787e22ba22fcb9d4e8a"
+                            },
+                            "cantidad": 1,
+                            "precioUnitario": 232,
+                            "_id": "68e5870e678270056223ba2f"
+                        }
+                    ],
+                    "total": 232,
+                    "moneda": "REAL",
+                    "direccionEntrega": {
+                        "calle": "Calle Falsa",
+                        "altura": "123",
+                        "piso": "1",
+                        "departamento": "A",
+                        "ciudad": "Ciudad Ejemplo",
+                        "codPostal": "1000",
+                        "provincia": "Provincia Ejemplo",
+                        "pais": "BRASIL",
+                        "lat": -34.6037,
+                        "lon": -58.3816
+                    },
+                    "estado": "PENDIENTE",
+                    "historialEstados": [],
+                    "fechaCreacion": "2025-10-07T21:33:02.461Z",
+                    "_id": "68e5870e678270056223ba2e",
+                    "__v": 0
+                }
+            },
+            "Usuario": {
+                "title": "Root Type for Usuario",
+                "description": "Un usuario del sistema esta formado por\n    Id\n    Nombre\n    Telefono\n    Email\n    Tipo\n    FechaAlta",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "El ID del Usuario",
+                        "type": "string"
+                    },
+                    "nombre": {
+                        "description": "El nombre del usuario",
+                        "type": "string"
+                    },
+                    "telefono": {
+                        "format": "int32",
+                        "description": "El telefono del Usuario",
+                        "type": "integer"
+                    },
+                    "email": {
+                        "description": "El email del Usuario",
+                        "type": "string"
+                    },
+                    "tipo": {
+                        "description": "Que tipo de usuario es. Pudiendo ser:\n\n    \"ADMIN\"\n    \"VENDEDOR\"\n    \"COMPRADOR\"",
+                        "type": "string"
+                    },
+                    "fehcaAlta": {
+                        "description": "La fecha en la que se dio de alta el Usuario en el sistema",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": "",
+                    "nombre": "PABLO",
+                    "telefono": 21321,
+                    "email": "PABooLO@gmail",
+                    "tipo": "ADMIN",
+                    "fehcaAlta": ""
+                }
+            },
+            "Producto": {
+                "title": "Root Type for Producto",
+                "description": "Un producto esta formado por\n    id;\n   vendedor;\n   titulo;\n   descripcion;\n   categorias;\n   precio;\n   moneda;\n   stock;\n   fotos;\n   activo;",
+                "type": "object",
+                "properties": {
+                    "titulo": {
+                        "description": "El titulo que se asigno para el producto",
+                        "type": "string"
+                    },
+                    "descripcion": {
+                        "description": "La descripcion que fue definida para el producto",
+                        "type": "string"
+                    },
+                    "categorias": {
+                        "description": "Las categorias a las que pertenece el producto. No estan definidas",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "precio": {
+                        "format": "double",
+                        "description": "El precio de venta del producto",
+                        "type": "number"
+                    },
+                    "moneda": {
+                        "description": "La moneda en la que se vende el producto. Pudiendo ser:\n\n    Peso: \"PESO_ARG\",\n    Dolar: \"DOLAR_USA\",\n    Real: \"REAL\"",
+                        "type": "string"
+                    },
+                    "stock": {
+                        "format": "int32",
+                        "description": "La cantidad de stock que hay del producto",
+                        "type": "integer"
+                    },
+                    "fotos": {
+                        "description": "Conjunto de fotos del producto",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "example": {
+                    "titulo": "PELOTA",
+                    "descripcion": "Camiseta de algodón transpirable, ideal para correr o entrenar.",
+                    "categorias": [],
+                    "precio": 1999.99,
+                    "moneda": "REAL",
+                    "stock": 3,
+                    "fotos": [
+                        "aa"
+                    ]
+                }
+            },
+            "Notificacion": {
+                "title": "Root Type for Notificacion",
+                "description": "Una notificacion en el sistema esta formada por:\n    suarioDestino;\n    mensaje;\n    fechaAlta;\n    eida;\n    fechaLeida;",
+                "type": "object",
+                "properties": {
+                    "usuarioDestino": {
+                        "description": "Es el ID del usuario al cual le llegara la notificacion",
+                        "type": "string"
+                    },
+                    "mensaje": {
+                        "description": "Es el mensaje que contiene la notificacion en cuestion",
+                        "type": "string"
+                    },
+                    "fechaAlta": {
+                        "format": "date-time",
+                        "description": "La fecha en la que se creo la Notificacion",
+                        "type": "string"
+                    },
+                    "fueLeida": {
+                        "description": "De termina si el Pedido fue leido o no\n    \n    true\n    false",
+                        "type": "boolean"
+                    },
+                    "fechaLeida": {
+                        "description": "La fecha en la que se leyo la notificacion",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "usuarioDestino": "68c9b787e22ba22fcb9d4e8a",
+                    "mensaje": "Nuevo pedido de valen.\n         Productos: 1 x LECHUGAA, 2 x TOMATE.\n         Total: 696 REAL.\n         Dirección de entrega: Calle Falsa 123, Ciudad Ejemplo",
+                    "fechaAlta": "2025-09-24T00:17:50.350Z",
+                    "fueLeida": true
+                }
+            }
+        },
+        "responses": {
+            "Internal-Server-ERROR": {
+                "content": {
+                    "application/json": {
+                        "examples": {
+                            "Error del servidor": {
+                                "value": " { error: 'Error interno del servidor'}"
+                            }
+                        }
+                    }
+                },
+                "description": "Error interno del servidor"
+            }
+        }
+    }
+}

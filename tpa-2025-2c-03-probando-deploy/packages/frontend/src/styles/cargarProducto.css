@@ -1,0 +1,197 @@
+.pedido-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: #f9f4fb;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  color: #4a2b4d;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #e0c7e3;
+  min-height: 100vh;
+  padding: 1rem;
+  box-shadow: 2px 0 8px rgba(180, 73, 186, 0.1);
+}
+
+/* Contenido principal */
+.pedido-main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  margin: 2rem;
+  animation: fadeInPedido 0.8s ease forwards;
+}
+
+/* Formulario general */
+.pedido-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Layout de columnas */
+.form-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Columna izquierda */
+.col-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: #faf5fc;
+  border: 1px solid #ecd6ef;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+}
+
+/* Columna derecha */
+.col-right {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Secciones */
+.form-section {
+  background: #faf5fc;
+  border: 1px solid #ecd6ef;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+}
+
+/* Campos */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  cursor: default !important; /* ❌ evita que el cursor cambie */
+}
+
+input,
+textarea,
+select {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  cursor: text !important; /* ❌ evita el cursor “mano” */
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-field.small {
+  flex: 1;
+}
+
+/* Fotos */
+.fotos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.foto-card {
+  width: 100px;
+  height: 100px;
+  border: 2px dashed #d3a8d9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.foto-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-add-foto {
+  background: none;
+  border: 2px dashed #b449ba;
+  color: #b449ba;
+  font-size: 2rem;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-add-foto:hover {
+  background-color: #f2e2f5;
+}
+
+/* Botón submit */
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Animación */
+@keyframes fadeInPedido {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .pedido-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    box-shadow: none;
+  }
+
+  .pedido-main {
+    margin: 1rem;
+    padding: 2rem;
+    max-width: 100%;
+  }
+
+  .form-layout {
+    flex-direction: column;
+  }
+
+  .btn-principal,
+  .btn-secondary {
+    width: 100%;
+  }
+}

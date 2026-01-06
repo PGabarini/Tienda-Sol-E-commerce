@@ -1,0 +1,174 @@
+
+.historial-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background-color: #f9f4fb;
+  color: #4a2b4d;
+}
+
+
+.historial-main {
+  flex: 1;
+  padding: 3rem;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  margin: 2rem;
+  transition: all 0.3s ease;
+}
+
+
+.historial-main h2 {
+  font-size: 1.8rem;
+  color: #4a2b4d;
+  margin-bottom: 0.5rem;
+}
+
+.historial-main p {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+
+.historial-main table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f9f4fb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(180, 73, 186, 0.1);
+  font-size: 0.95rem;
+}
+
+.historial-main th,
+.historial-main td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid #e0c7e3;
+}
+
+.historial-main th {
+  background-color: #f1e4f5;
+  color: #4a2b4d;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.historial-main tr:hover {
+  background-color: #f9ebfc;
+  transition: background-color 0.3s ease;
+}
+
+
+.historial-main .estado {
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+
+.historial-main .estado {
+  padding: 0.4rem 0.9rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  display: inline-block;
+}
+
+.historial-main .entregado {
+  background-color: #c6f6c6; 
+  color: #256f28; 
+  border: 1px solid #a1e6a1;
+}
+
+.historial-main .pendiente {
+  background-color: #ffeab6; 
+  color: #7a5a00; 
+  border: 1px solid #ffd77a;
+}
+
+.historial-main .cancelado {
+  background-color: #f8b6c0; 
+  color: #7a1f29; 
+  border: 1px solid #f28b98;
+}
+
+
+
+.historial-main .btn-detalles {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #d58cd9;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(180, 73, 186, 0.3);
+}
+
+.historial-main .btn-detalles:hover {
+  background-color: #922d99;
+  box-shadow: 0 6px 12px rgba(180, 73, 186, 0.5);
+}
+
+.historial-main .btn-cancelar {
+  margin-left: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #e57373;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(244, 67, 54, 0.3);
+}
+
+.historial-main .btn-cancelar:hover {
+  background-color: #c62828;
+  box-shadow: 0 6px 12px rgba(244, 67, 54, 0.5);
+}
+
+
+@keyframes fadeInHistorial {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.historial-main {
+  animation: fadeInHistorial 0.8s ease forwards;
+}
+
+
+@media (max-width: 768px) {
+  .historial-container {
+    flex-direction: column;
+  }
+
+  .historial-main {
+    margin: 1rem;
+    padding: 2rem;
+  }
+
+  .historial-main table,
+  .historial-main th,
+  .historial-main td {
+    font-size: 0.85rem;
+  }
+}

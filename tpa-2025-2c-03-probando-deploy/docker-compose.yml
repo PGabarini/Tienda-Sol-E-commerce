@@ -1,0 +1,45 @@
+services:
+  mongodb:
+    image: mongo:8
+    ports:
+      - "27017:27017"
+    container_name: mongo
+    volumes:
+      - mongodb_data:/data/db
+  backend:
+    build:
+      context: ./packages/backend
+      dockerfile: Dockerfile
+    container_name: tienda-sol-backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+  frontend:
+    build:
+      context: ./packages/frontend
+      dockerfile: Dockerfile
+    container_name: tienda-sol-frontend
+    ports:
+      - "3000:3000"
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.2.1
+    container_name: keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HTTP_ENABLED: true
+      KC_HOSTNAME_STRICT: false
+      KC_HOSTNAME_STRICT_HTTPS: false
+    command: 
+      - start-dev
+      - --import-realm
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./keycloak-setup.json:/opt/keycloak/data/import/realm.json
+    depends_on:
+      - mongodb
+    
+volumes:
+  mongodb_data:

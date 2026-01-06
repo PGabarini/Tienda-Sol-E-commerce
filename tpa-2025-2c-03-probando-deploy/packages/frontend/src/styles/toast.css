@@ -1,0 +1,60 @@
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  min-width: 250px;
+  max-width: 350px; /* opcional, evita que sea demasiado largo */
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  animation: fadeInOut 3s ease forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centra el texto horizontalmente */
+  text-align: center; /* asegura que el texto quede centrado */
+  word-wrap: break-word; /* si el texto es largo, salta de línea */
+  line-height: 1.4;
+}
+
+/* ✅ Colores por tipo */
+.toast.success {
+  background-color: #43a047; /* verde */
+  opacity: 0.9;
+}
+
+.toast.error {
+  background-color: #e53935; /* rojo */
+}
+
+.toast.info {
+  background-color: #546e7a; 
+  opacity: 1;
+}
+
+/* 🔄 Animación sutil de entrada/salida */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}

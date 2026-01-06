@@ -1,0 +1,235 @@
+{
+  "usuarios": [
+    {
+      "nombre": "valen",
+      "telefono": "15234498156",
+      "email": "valen@gmail.com",
+      "tipo": "COMPRADOR"
+    },
+    {
+      "nombre": "DELFINA",
+      "telefono": "5894894898484",
+      "email": "delfina@hotmail.com",
+      "tipo": "VENDEDOR"
+    },
+    {
+      "nombre": "TADE",
+      "telefono": "1487187149871",
+      "email": "tade@gmail",
+      "tipo": "VENDEDOR"
+    }
+  ],
+
+  "notificaciones": [
+    {
+      "usuarioDestino": "68c9b787e22ba22fcb9d4e8a",
+      "mensaje": "Nuevo pedido de valen.\n         Productos: 1 x LECHUGAA, 2 x TOMATE.\n         Total: 696 REAL.\n         Dirección de entrega: Calle Falsa 123, Ciudad Ejemplo",
+      "fechaAlta": "2025-09-24T00:17:50.350Z",
+      "fueLeida": false,
+      "fechaLeida": null
+    },
+    {
+      "usuarioDestino": "68c9b787e22ba22fcb9d4e8a",
+      "mensaje": "Nuevo pedido de valen.\n         Productos: 1 x LECHUGAA, 2 x TOMATE.\n         Total: 696 REAL.\n         Dirección de entrega: Calle Falsa 123, Ciudad Ejemplo",
+      "fechaAlta": "2025-09-24T00:17:50.350Z",
+      "fueLeida": true,
+      "fechaLeida": null
+    }
+  ],
+
+  "pedidos": [
+    {
+      "compradorId": "68c9ab77b47a72e5d35c936b",
+      "items": [
+        {
+          "productoId": "68c9b5b203365f3e368b0780",
+          "cantidad": 2
+        }
+      ],
+      "moneda": "REAL",
+      "direccionEntrega": {
+        "calle": "Calle Falsa",
+        "altura": "123",
+        "piso": "1",
+        "departamento": "A",
+        "ciudad": "Ciudad Ejemplo",
+        "codPostal": "1000",
+        "provincia": "Provincia Ejemplo",
+        "pais": "BRASIL",
+        "lat": -34.6037,
+        "lon": -58.3816
+      }
+    }
+  ],
+  "productos":
+  [
+    {
+      "vendedor": "1",
+      "titulo": "Laptop Gamer XT300",
+      "descripcion": "Laptop con procesador i7, 16GB RAM y tarjeta gráfica RTX 3060",
+      "categorias": ["Electrónica", "Computación"],
+      "precio": 1800,
+      "moneda": "DOLAR_USA",
+      "stock": 10,
+      "cantidadVendida": 5,
+      "fotos": ["https://example.com/laptop1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "1",
+      "titulo": "Auriculares Inalámbricos Pro",
+      "descripcion": "Auriculares con cancelación de ruido y batería de 20h",
+      "categorias": ["Electrónica", "Audio"],
+      "precio": 120,
+      "moneda": "DOLAR_USA",
+      "stock": 25,
+      "cantidadVendida": 12,
+      "fotos": ["https://example.com/auriculares1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "1",
+      "titulo": "Smartwatch Fitness X2",
+      "descripcion": "Reloj inteligente con monitor de ritmo cardíaco y GPS",
+      "categorias": ["Electrónica", "Wearables"],
+      "precio": 200,
+      "moneda": "DOLAR_USA",
+      "stock": 30,
+      "cantidadVendida": 10,
+      "fotos": ["https://example.com/smartwatch1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "1",
+      "titulo": "Tablet 10'' Ultra",
+      "descripcion": "Tablet con pantalla retina, 128GB almacenamiento y cámara 8MP",
+      "categorias": ["Electrónica", "Computación"],
+      "precio": 350,
+      "moneda": "DOLAR_USA",
+      "stock": 15,
+      "cantidadVendida": 6,
+      "fotos": ["https://example.com/tablet1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "1",
+      "titulo": "Teclado Mecánico RGB",
+      "descripcion": "Teclado mecánico con switches azules y retroiluminación RGB",
+      "categorias": ["Electrónica", "Computación"],
+      "precio": 90,
+      "moneda": "DOLAR_USA",
+      "stock": 20,
+      "cantidadVendida": 8,
+      "fotos": ["https://example.com/teclado1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "1",
+      "titulo": "Mouse Gaming Pro",
+      "descripcion": "Mouse ergonómico con 16000 DPI y luces RGB personalizables",
+      "categorias": ["Electrónica", "Computación"],
+      "precio": 60,
+      "moneda": "DOLAR_USA",
+      "stock": 25,
+      "cantidadVendida": 15,
+      "fotos": ["https://example.com/mouse1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "1",
+      "titulo": "Monitor 27'' 4K",
+      "descripcion": "Monitor con resolución 4K, 144Hz y soporte ajustable",
+      "categorias": ["Electrónica", "Computación"],
+      "precio": 400,
+      "moneda": "DOLAR_USA",
+      "stock": 12,
+      "cantidadVendida": 5,
+      "fotos": ["https://example.com/monitor1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "2",
+      "titulo": "Silla Ergonómica Deluxe",
+      "descripcion": "Silla con soporte lumbar y ajuste de altura para oficina",
+      "categorias": ["Muebles", "Oficina"],
+      "precio": 250,
+      "moneda": "DOLAR_USA",
+      "stock": 15,
+      "cantidadVendida": 7,
+      "fotos": ["https://example.com/silla1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "2",
+      "titulo": "Escritorio Modular de Madera",
+      "descripcion": "Escritorio con espacio para computadora y almacenamiento lateral",
+      "categorias": ["Muebles", "Oficina"],
+      "precio": 320,
+      "moneda": "DOLAR_USA",
+      "stock": 8,
+      "cantidadVendida": 3,
+      "fotos": ["https://example.com/escritorio1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "2",
+      "titulo": "Lámpara LED de Escritorio",
+      "descripcion": "Lámpara con luz regulable y diseño moderno",
+      "categorias": ["Muebles", "Iluminación"],
+      "precio": 45,
+      "moneda": "DOLAR_USA",
+      "stock": 20,
+      "cantidadVendida": 10,
+      "fotos": ["https://example.com/lampara1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "2",
+      "titulo": "Estantería Modular",
+      "descripcion": "Estantería de madera con varias repisas ajustables",
+      "categorias": ["Muebles", "Almacenamiento"],
+      "precio": 150,
+      "moneda": "DOLAR_USA",
+      "stock": 10,
+      "cantidadVendida": 4,
+      "fotos": ["https://example.com/estanteria1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "2",
+      "titulo": "Silla Gamer Comfort",
+      "descripcion": "Silla ergonómica para gaming con soporte lumbar y reposabrazos ajustables",
+      "categorias": ["Muebles", "Gaming"],
+      "precio": 300,
+      "moneda": "DOLAR_USA",
+      "stock": 12,
+      "cantidadVendida": 6,
+      "fotos": ["https://example.com/sillagamer1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "2",
+      "titulo": "Mesa de Oficina Compacta",
+      "descripcion": "Mesa con cajón lateral y espacio para laptop",
+      "categorias": ["Muebles", "Oficina"],
+      "precio": 180,
+      "moneda": "DOLAR_USA",
+      "stock": 9,
+      "cantidadVendida": 3,
+      "fotos": ["https://example.com/mesa1.jpg"],
+      "activo": true
+    },
+    {
+      "vendedor": "2",
+      "titulo": "Cojín Lumbar Ergónomico",
+      "descripcion": "Cojín para soporte lumbar y postura correcta en sillas de oficina",
+      "categorias": ["Muebles", "Oficina"],
+      "precio": 35,
+      "moneda": "DOLAR_USA",
+      "stock": 25,
+      "cantidadVendida": 12,
+      "fotos": ["https://example.com/cojin1.jpg"],
+      "activo": true
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+
+.notificaciones-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* eliminamos el gap, usaremos borde */
+}
+
+
+.notificacion-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #f9f4fb;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(180, 73, 186, 0.1);
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #d9cce1;
+   
+}
+
+.notificacion-card:hover {
+    box-shadow: 0 4px 12px rgba(180, 73, 186, 0.2);
+}
+
+
+.notificacion-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+   
+}
+
+.notificacion-fecha {
+    font-size: 0.85rem;
+    color: #7a5a7d;
+    margin-bottom: 0.3rem;
+}
+
+.notificacion-mensaje {
+    font-size: 1rem;
+    color: #4a2b4d;
+    margin: 0;
+}
+
+
+.btn-marcar {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 25px;
+    background-color: #922d99;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(180, 73, 186, 0.3);
+    margin-left: 1rem;
+    /* separa un poco del mensaje */
+}
+
+.btn-marcar:hover {
+    background-color: #d58cd9;
+    box-shadow: 0 6px 12px rgba(180, 73, 186, 0.5);
+}
+
+
+.notificacion-card.leida {
+    background-color: #e0e0e0;
+    color: #555;
+}
+
+.notificacion-card.no-leida {
+    background-color: #f9f4fb;
+}
+
+
+.notificaciones-filtros {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.notificaciones-filtros button {
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    border: 2px solid #d58cd9;
+    background-color: transparent;
+    color: #922d99;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(180, 73, 186, 0.2);
+}
+
+.notificaciones-filtros button:hover {
+    background-color: #d58cd9;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(180, 73, 186, 0.4);
+}
+
+.notificaciones-filtros button.activo {
+    background-color: #922d99;
+    color: #fff;
+    border-color: #922d99;
+    box-shadow: 0 4px 8px rgba(180, 73, 186, 0.5);
+}
+
+.notificaciones-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .notificacion-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        border-bottom: 1px solid #d9cce1;
+    }
+
+    .btn-marcar {
+        align-self: flex-end;
+        margin-left: 0;
+    }
+}

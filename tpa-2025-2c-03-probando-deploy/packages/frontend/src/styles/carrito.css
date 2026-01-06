@@ -1,0 +1,257 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  color: #4a2b4d;
+}
+
+
+.carrito-page {
+  display: flex;
+  background-color: #f7f8fc;
+  min-height: 100vh;
+}
+
+.carrito-main {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  gap: 30px;
+  background-color: #f7f8fc;
+}
+
+
+.carrito-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(180, 73, 186, 0.1);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.carrito-card:hover {
+  box-shadow: 0 6px 15px rgba(180, 73, 186, 0.15);
+}
+
+
+.productos {
+  flex: 2;
+}
+
+.productos h2 {
+  font-size: 1.5rem;
+  color: #4a2b4d;
+  margin-bottom: 20px;
+}
+
+.producto {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e5d4f2;
+}
+
+.producto img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.producto .info {
+  flex: 1;
+}
+
+.producto h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #5a2b7d;
+}
+
+.producto p {
+  margin: 5px 0;
+  color: #6b5b70;
+}
+
+
+.producto input[type="number"] {
+  width: 60px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #c9a8d4;
+  text-align: center;
+  transition: border-color 0.3s;
+  color: #4a2b4d;
+}
+
+.producto input[type="number"]:focus {
+  outline: none;
+  border-color: #b449ba;
+  box-shadow: 0 0 5px rgba(180, 73, 186, 0.2);
+}
+
+
+.btn-remove {
+  background: #f7c6ce;
+  border: none;
+  color: #4a2b4d;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-remove:hover {
+  background: #f49cb0;
+}
+
+
+.resumen {
+  flex: 0.7;
+  min-width: 280px;
+}
+
+.resumen h2 {
+  font-size: 1.4rem;
+  color: #4a2b4d;
+  margin-bottom: 15px;
+}
+
+.resumen .total {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  color: #5a2b7d;
+}
+
+.acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
+.btn-primary {
+  background: #ffffff;
+  color: #b449ba;
+  border: 2px solid #b449ba;
+  padding: 12px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(180, 73, 186, 0.15);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #b449ba, #d96ddc);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(180, 73, 186, 0.25);
+}
+
+
+.btn-secondary {
+  background: #ffffff;
+  color: #b449ba;
+  border: 2px solid #b449ba;
+  padding: 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #b449ba;
+  color: #fff;
+}
+
+
+@media (max-width: 900px) {
+  .carrito-page {
+    flex-direction: column;
+  }
+
+  .carrito-main {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+.titulo-direccion {
+  margin-top: 25px;
+  font-size: 1.1rem;
+  color: #5a2b7d;
+}
+
+.form-direccion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.form-direccion input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #c9a8d4;
+  font-size: 0.9rem;
+  color: #4a2b4d;
+}
+
+.form-direccion input:focus {
+  outline: none;
+  border-color: #b449ba;
+  box-shadow: 0 0 4px rgba(180, 73, 186, 0.2);
+}
+
+.selector-moneda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 8px 12px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  width: fit-content;
+}
+
+.selector-moneda label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.selector-moneda select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.selector-moneda select:hover {
+  border-color: #007bff;
+}
+
+.selector-moneda select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+}
+
+.input-error {
+  border: 2px solid #ff4d4f !important;
+  background-color: #fff0f0;
+}
+
+.input-error::placeholder {
+  color: #d93025;
+}

@@ -1,0 +1,305 @@
+.contenedor-principal {
+    display: grid;
+    background-color: rgb(244, 242, 247);
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 25% 75%;
+    width: 100%;
+    min-height: 100vh;
+    padding: 1%;
+}
+
+.contenedor-filtros {
+
+    display: grid;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 98%;
+    border-radius: 5rem;
+    padding: 3%;
+    justify-content: center;
+    align-self: auto;
+    grid-template-columns: 95%;
+    grid-template-rows: 4rem 1fr;
+    min-height: 40rem;
+}
+
+.contenedor-productos {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(244, 242, 247);
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    padding: 2%;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-filtros {
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    border-bottom: 0.05rem solid;
+    border-color: rgb(226, 223, 223);
+    font-size: 1.2rem;
+}
+
+.form-filtros {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    height: 73%;
+    width: 100%;
+}
+
+[class^="contenedor-filtro-"] {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    align-items: center;
+    width: 95%;
+
+}
+
+label {
+    border-bottom: 0.05rem solid;
+    border-color: rgb(226, 223, 223);
+    width: 75%;
+    margin-bottom: 1%;
+}
+
+.filtrado {
+    width: 80%;
+    display: flex;
+    border: none;
+    border-radius: 1rem;
+    padding: 3%;
+    border: 0.06rem solid;
+    border-color: rgb(198, 139, 217);
+    margin: 1%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.input-descripcion {
+    text-align: start;
+}
+
+.input-descripcion::placeholder {
+    text-align: center;
+}
+
+.contenedor-productos-paginas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor-paginas {
+    background-color: rgb(255, 255, 255);
+    width: 60%;
+    height: 3.5rem;
+    border-radius: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+[class^="paginas-"] {
+    color: rgb(255, 255, 255);
+    background-color: #b449ba;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 13%;
+    height: 60%;
+    border-radius: 3rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+[class^="paginas-"]:hover{
+    background-color: white;
+    color: #b449ba;
+    animation: cambiarColorFiltro 0.6s ease-out;
+    border: 2px solid #b449ba; ;
+}
+
+.oculto {
+    visibility: hidden;
+}
+
+.boton.filtrar {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    background-color: #b449ba;
+    border-radius: 2rem;
+    width: 60%;
+    height: 7%;
+    min-height: 2rem;
+    font-size: 1rem;
+    border: none;
+    box-shadow: 0 0;
+    cursor: pointer;
+}
+
+
+.boton.filtrar:hover {
+    background-color: white;
+    color: #b449ba;
+    animation: cambiarColorFiltro 0.6s ease-out;
+    border: 2px solid #b449ba; ;
+}
+
+@keyframes cambiarColorFiltro {
+    0% {
+        background-color: #b449ba;
+    }
+
+    100% {
+        background-color: white;
+    }
+}
+
+.contenedor-paginas button:hover {
+    background-color: white;
+    color: #b449ba;
+    border-color: #b449ba;
+}
+
+.mensaje-sin-productos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    font-size: 1.3rem;
+    border-bottom: 0.05rem #b449ba solid;
+    width: 65%;
+    margin: 2%;
+}
+
+.boton.filtrar.deshacer {
+    width: 40%;
+}
+
+.botones-filtros {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 25%;
+}
+
+@media (max-width: 800px) {
+
+    html,
+    body {
+        width: 100%;
+        height: auto;
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor-principal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: auto;
+        min-height: unset;
+        padding-bottom: 0;
+        flex: 1;
+    }
+
+    .contenedor-filtros {
+        width: 95%;
+        height: auto;
+    }
+
+    .contenedor-productos-paginas {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: auto;
+        flex: 1;
+    }
+
+    .contenedor-productos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        flex: 1;
+    }
+
+    .contenedor-paginas {
+        margin-bottom: 1rem;
+    }
+
+    .contenedor-paginas button {
+        font-size: 0;
+        border: white;
+    }
+
+    .paginas-derecha {
+        border-top-right-radius: 10rem;
+        border-bottom-right-radius: 10rem;
+    }
+
+    .paginas-izquierda {
+        border-top-left-radius: 10rem;
+        border-bottom-left-radius: 10rem;
+    }
+
+}
+
+.contenedor-filtro-precio {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.grupo-precio {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+}
+
+.grupo-precio input {
+    width: 100%;
+    border: 1px solid #c58aff;
+    border-radius: 8px;
+    padding: 0.4rem;
+    text-align: center;
+}
+
+.grupo-precio label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: left;
+}

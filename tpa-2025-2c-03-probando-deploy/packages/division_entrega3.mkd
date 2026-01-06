@@ -1,0 +1,116 @@
+# 🎨 Grupo 1 (3 personas): UI + Navegación + Integración con Backend
+## 🎯 Objetivo general
+
+Construir toda la interfaz visual y navegable, asegurando una experiencia coherente, responsiva y conectada al backend para la búsqueda y visualización de productos.
+
+## 🔹 Responsabilidades principales
+
+### Navegación y estructura general
+
+- Configurar el router de Next.js (pages o app router).
+
+### Implementar la navegación completa:
+
+- Landing → Login → Catálogo → Detalle de Producto → Carrito
+
+
+- Navbar y footer comunes en todas las vistas.
+
+- Integración con backend (Búsqueda y Visualización de Productos)
+
+- Conectar el catálogo con el backend usando `Axios`.
+
+- Implementar la búsqueda (por nombre, categoría, etc.).
+
+- Mostrar el detalle real del producto (info proveniente del backend).
+
+- Manejar estados: loading, error, empty.
+
+- Mostrar feedback visual con loaders y mensajes descriptivos.
+
+### Diseño responsivo y accesibilidad
+
+- Adaptar las pantallas a desktop, tablet y móvil.
+
+- Usar etiquetas aria-*, buen contraste y tamaños accesibles.
+
+
+
+### Crear componentes comunes (botones, tarjetas, modales).
+
+- Mantener estilos uniformes entre todas las vistas.
+
+- Permitir navegación con teclado y textos alternativos.
+
+- Consistencia visual
+
+- Definir paleta de colores, tipografías y componentes reutilizables.
+
+### Documento de justificación (en conjunto con el grupo 2)
+
+Redactar la parte de la UI/UX (interfaz intuitiva, feedback visual, responsividad, accesibilidad).
+
+## 🧰 Entregables del grupo 1
+
+- Todas las pantallas maquetadas y navegables.
+
+- Búsqueda y detalle de productos integrados con el backend.
+
+- App 100% funcional visualmente.
+
+- Feedback visual y diseño responsivo.
+
+- Parte visual del documento de justificación.
+
+# 🧠 Grupo 2 (2 personas): Autenticación + Carrito de Compras
+🎯 Objetivo general
+
+## Implementar toda la lógica de sesión y autenticación con Keycloak y el manejo del carrito de compras en el cliente.
+
+🔹 Responsabilidades principales
+
+Autenticación con Keycloak
+
+Configurar el cliente en Keycloak (realm, roles, redirecciones).
+
+Implementar integración en el frontend (con keycloak-js o SDK).
+
+Login y logout funcionales.
+
+Proteger rutas (por ejemplo, carrito y perfil solo para usuarios autenticados).
+
+Mostrar nombre o email del usuario en el header.
+
+Carrito de compras (lógica cliente)
+
+Implementar el estado global del carrito (Context API o Zustand).
+
+Agregar y eliminar productos desde catálogo o detalle.
+
+Calcular totales y cantidad de ítems.
+
+Persistir carrito en localStorage (sin base de datos).
+
+Mostrar notificaciones (“Producto agregado”, “Eliminado”, etc.).
+
+Integrar con Keycloak (solo usuarios logueados pueden finalizar compra).
+
+Feedback visual
+
+Agregar toasts o alertas cuando se modifica el carrito o se inicia/cierra sesión.
+
+Documento de justificación (en conjunto con el grupo 1)
+
+Redactar la parte técnica sobre manejo de sesiones, seguridad y persistencia local.
+
+# 🧰 Entregables del grupo 2
+
+- Login/logout con Keycloak completamente funcional.
+
+- Rutas protegidas.
+
+- Carrito de compras con estado global y persistencia local.
+
+- Feedback visual en las acciones del usuario.
+
+- Parte técnica del documento de justificación.

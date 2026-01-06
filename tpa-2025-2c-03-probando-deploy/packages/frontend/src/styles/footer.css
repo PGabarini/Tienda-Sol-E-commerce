@@ -1,0 +1,80 @@
+footer {
+  width: 100%;
+  background-color: #f9f4fb; 
+  padding: 0.8rem 1.5rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; 
+  text-align: center;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #4a2b4d;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+}
+
+footer h2 {
+  font-size: 1.4rem; 
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+footer p {
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+footer .boton-red-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #b449ba;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+footer .boton-red-social img {
+  width: 35px; 
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #b449ba;
+  padding: 2px;
+  margin-bottom: 0.2rem;
+  transition: all 0.3s ease;
+}
+
+footer .boton-red-social:hover img {
+  transform: scale(1.1);
+  border-color: #922d99;
+}
+
+footer .boton-red-social:hover {
+  color: #922d99;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 0.6rem 1rem;
+  }
+
+  footer h2 {
+    font-size: 1.2rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+
+  footer .boton-red-social img {
+    width: 30px;
+    height: 30px;
+  }
+}
